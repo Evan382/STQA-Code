@@ -1,0 +1,20 @@
+// cypress/integration/orangeHRMLogin.spec.js
+
+describe('OrangeHRM Login Test', () => {
+  it('should log into OrangeHRM.UIU', () => {
+    // Visit the OrangeHRM.UIU login page
+    cy.visit('https://OrangeHRM.UIU');
+
+    // Enter username and password
+    cy.get('#txtUsername').type('11111'); 
+    cy.get('#txtPassword').type('22222');
+
+    // Click the login button
+    cy.get('#btnLogin').click();
+
+    
+    cy.get('#dashboardContainer').should('be.visible');
+
+    
+  });
+});
