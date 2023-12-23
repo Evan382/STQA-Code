@@ -1,0 +1,29 @@
+// cypress/integration/orangeHRMAddEmployee.spec.js
+
+describe('OrangeHRM Add Employee Test', () => {
+  it('should add a new employee in OrangeHRM.UIU', () => {
+    // Visit the OrangeHRM.UIU website
+    cy.visit('https://OrangeHRM.UIU');
+
+    // Log in with credentials
+    cy.get('#txtUsername').type('evan32');
+    cy.get('#txtPassword').type('Evan@2023');
+    cy.get('#btnLogin').click();
+
+    // Navigate to PIM -> Add Employee
+    cy.get('#menu_pim_viewPimModule').click();
+    cy.get('#menu_pim_addEmployee').click();
+
+    // Fill out the employee form
+    cy.get('#firstName').type('Arifur');
+    cy.get('#lastName').type('Rahman');
+    cy.get('#employeeId').type('011183');
+
+    // Click the Save button
+    cy.get('#btnSave').click();
+
+    // Assertion: Check if the employee is added successfully (you might want to check for success messages, etc.)
+    cy.get('.message.success').should('be.visible');
+
+  });
+});
